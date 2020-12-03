@@ -1,0 +1,20 @@
+version: '3'
+
+services:
+  stream:
+    build:
+      context: .
+    restart: always
+    depends_on:
+      - elk
+    links:
+      - elk
+    environment:
+      ELASTICSEARCH_HOST: http://elk:9200
+  elk:
+    image: sebp/elk
+    ports:
+      - "5601:5601"
+      - "9200:9200"
+    environment:
+      LOGSTASH_START: 0
