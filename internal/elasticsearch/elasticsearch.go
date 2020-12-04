@@ -110,7 +110,7 @@ func (e *ES) indexDocument(t *twitter.Tweet) {
 	defer res.Body.Close()
 
 	if res.IsError() {
-		log.Printf("[%s] Error indexing document ID=%d", res.Status(), t.ID)
+		log.Printf("[%s] Error indexing document ID=%d: %s", res.Status(), t.ID, res.String())
 	} else {
 		// Deserialize the response into a map.
 		var r map[string]interface{}
