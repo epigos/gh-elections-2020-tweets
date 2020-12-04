@@ -3,6 +3,9 @@
 ##################################
 FROM golang:1.14-alpine AS build
 
+# Install some dependencies needed to build the project
+RUN apk update && apk add bash ca-certificates git gcc g++ libc-dev openssh-client
+
 # All these steps will be cached
 RUN mkdir /app
 WORKDIR /app
@@ -27,6 +30,8 @@ RUN go build -o ./build/tweets cmd/tweets/main.go
 ##############################
 FROM alpine:3.9
 WORKDIR /app
+
+EXPOSE 8080
 
 COPY --from=build /app/build/tweets /bin/tweets
 

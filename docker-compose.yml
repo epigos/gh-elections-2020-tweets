@@ -11,6 +11,8 @@ services:
       - elk
     environment:
       ELASTICSEARCH_HOST: http://elk:9200
+    ports:
+      - "8080:8080"
   elk:
     image: sebp/elk
     ports:

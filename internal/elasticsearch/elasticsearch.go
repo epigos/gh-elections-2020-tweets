@@ -105,7 +105,7 @@ func (e *ES) indexDocument(t *twitter.Tweet) {
 	// Perform the request with the client.
 	res, err := req.Do(context.Background(), e.client)
 	if err != nil {
-		log.Fatalf("Error getting response: %s", err)
+		log.Printf("Error getting response: %s\n", err)
 	}
 	defer res.Body.Close()
 

@@ -67,7 +67,8 @@ func Analyze(t string) *Result {
 	})
 
 	if err != nil {
-		log.Fatalf("Failed to annotate text: %v", err)
+		log.Printf("Failed to annotate text: %v\n", err)
+		return &Result{}
 	}
 
 	r := &Result{
