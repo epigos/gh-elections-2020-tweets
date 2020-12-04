@@ -9,7 +9,7 @@ import (
 
 func Start(port string) {
 	log.Print("starting health...")
-	http.HandleFunc("/healthz", handler)
+	http.HandleFunc("/", handler)
 
 	// Determine port for HTTP service.
 	if port == "" {
