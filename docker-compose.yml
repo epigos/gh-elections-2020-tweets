@@ -1,6 +1,12 @@
 version: '3'
 
 services:
+  nginx:
+    build:
+      context: ./nginx
+    restart: always
+    ports:
+    - "8080:80"
   stream:
     build:
       context: .
@@ -12,7 +18,7 @@ services:
     environment:
       ELASTICSEARCH_HOST: http://elk:9200
     ports:
-      - "8080:8080"
+      - "5000:8080"
   elk:
     image: sebp/elk
     ports:
