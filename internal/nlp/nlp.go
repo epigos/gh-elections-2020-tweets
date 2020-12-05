@@ -59,7 +59,7 @@ func Analyze(t string) *Result {
 		EncodingType: langpb.EncodingType_UTF8,
 		Features: &langpb.AnnotateTextRequest_Features{
 			ExtractSyntax:            false,
-			ExtractEntities:          true,
+			ExtractEntities:          false,
 			ExtractDocumentSentiment: true,
 			ExtractEntitySentiment:   false,
 			ClassifyText:             false,
